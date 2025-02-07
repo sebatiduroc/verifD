@@ -13,7 +13,7 @@
             background-color: #888888;
         }
 
-        #containerA {
+        #containerD {
             display: flex;
             flex-direction: column;
             justify-content: top;
@@ -22,7 +22,7 @@
             text-align: center;
         }
 
-        #testButtonA {
+        #testButtonD {
             background-color: green;
             color: white;
             font-size: 20px;
@@ -32,11 +32,11 @@
             border-radius: 5px;
         }
 
-        #testButtonA:hover {
+        #testButtonD:hover {
             background-color: darkgreen;
         }
 
-        #messageA {
+        #messageD {
             margin-top: 20px;
             font-size: 18px;
             color: black;
@@ -46,9 +46,9 @@
     
 </head>
 <body>
-    <div id="containerA">
-        <button id="testButtonA">Test</button>
-        <div id="messageA"></div>
+    <div id="containerD">
+        <button id="testButtonD">Test</button>
+        <div id="messageD"></div>
     </div>
     <script>
         let userInput = [];
@@ -59,7 +59,7 @@
             let key = event.key.toUpperCase();
             if (/^[A-Z]$/.test(key) && !userInput.includes(key)) {
                 userInput.push(key);
-                document.getElementById("testButtonA").innerText = userInput.join('');
+                document.getElementById("testButtonD").innerText = userInput.join('');
                 bipSound.play();
             }
 
@@ -75,24 +75,24 @@
         function checkAnswer() {
             const correct = ["J", "W", "P"];
             let correctLetters = userInput.filter(letter => correct.includes(letter)).length;
-            let messageA = "";
+            let messageD = "";
 
             if (userInput.join('') === "JWP") {
-                messageA = "🎉 Parfait !, code 31";
+                messageD = "🎉 Parfait !, code 31";
                 localStorage.setItem("varA", "1"); // Mise à jour en cas de succès
             } else if (correctLetters === 3) {
-                messageA = "✅ Cartes:OK, ordre:KO.";
+                messageD = "✅ Cartes:OK, ordre:KO.";
             } else {
-                messageA = `❌ ${correctLetters} carte(s) OK.`;
+                messageD = `❌ ${correctLetters} carte(s) OK.`;
             }
 
-            document.getElementById("messageA").innerText = messageA;
+            document.getElementById("messageD").innerText = messageD;
         }
 
-        document.getElementById("testButtonA").addEventListener("click", function () {
+        document.getElementById("testButtonD").addEventListener("click", function () {
             userInput = [];
-            document.getElementById("messageA").innerText = "";
-            document.getElementById("testButtonA").innerText = "Test";
+            document.getElementById("messageD").innerText = "";
+            document.getElementById("testButtonD").innerText = "Test";
             setTimeout(function () {
                 startSound.play();
             }, 200);
